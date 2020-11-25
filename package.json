@@ -1,6 +1,6 @@
 {
   "name": "@wcom/events",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "license": "MIT",
   "author": "Rahim Alwer <rahim_alwer@hotmail.com>",
   "description": "Event decorators and helpers for web components.",

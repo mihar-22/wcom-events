@@ -3,7 +3,7 @@ export interface EventOptions extends EventInit {
 }
 
 /**
- * Dispatches an event of type `T` from the given `target`. Primarily used to type the emitter 
+ * Dispatches a custom event of type `T` from the given `target`. Primarily used to type the emitter 
  * returned from the `@event` decorator.
  * 
  * @example
@@ -73,6 +73,7 @@ export function event(options: EventOptions = {}) {
       get(this: HTMLElement) {
         return new EventEmitter(this, customName ?? name, {
           bubbles: true,
+          cancelable: true,
           composed: true,
           ...eventInitOpts,
         });
@@ -81,34 +82,88 @@ export function event(options: EventOptions = {}) {
       configurable: true,
     };
 
-    return Object.defineProperty(component, name, descriptor);
+    Object.defineProperty(component, name, descriptor);
   };
 }
 
 export interface ListenOptions {
-  target?: 'body' | 'document' | 'window';
+  target?: 'document' | 'window';
   capture?: boolean;
   passive?: boolean;
 }
 
 /**
- * yep.
+ * Listens to an event on the given `node` and returns a cleanup function to stop listening.
+ * 
+ * @param eventTarget - The target to listen for the events on.
+ * @param eventName - The name of the event to listen to.
+ * @param handler - The function to be called when the event is fired.
+ * @param options - Configures the event listener.
+ * 
+ * @example
+ * ```typescript
+ * const off = listenTo(window, 'resize', () => {});
+ * 
+ * // Stop listening.
+ * off();
+ * ```
  */
 export function listenTo<T extends Event>(
-  node: EventTarget, 
+  eventTarget: EventTarget, 
   eventName: string, 
   handler: (event: T) => void,
   options?: boolean | AddEventListenerOptions | EventListenerOptions,
 ) {
-  node.addEventListener(eventName, handler as any, options);
-  return () => node.removeEventListener(eventName, handler as any, options);
+  eventTarget.addEventListener(eventName, handler as any, options);
+  return () => eventTarget.removeEventListener(eventName, handler as any, options);
+}
+    
+
+export interface CustomHTMLElement extends HTMLElement {
+  connectedCallback?: () => void
+  disconnectedCallback?: () => void
 }
 
 /**
- * yep.
+ * Attaches an event listener to the host element or the given `target`. The event name can be inferred 
+ * from the method name if it is named following JSX conventions such as `onEventName`, which will 
+ * listen for `eventName`. The event is automatically cleaned up when the element is disconnected 
+ * from the DOM.
+ 
+ * @param eventName (optional) - The name of the event to listen to.
+ * @param options - Configures the event listener.
  */
-export function listen(eventName: string, options: ListenOptions = {}) {
-  return (component: HTMLElement, name: string) => {
-    // ...
+export function listen(eventName?: string, options: ListenOptions = {}) {
+  return (component: CustomHTMLElement, name: string) => {
+    const { target, ...listenerOptions } = options;
+    
+    // Converts method name `onEventName` to `eventName` if no event is given.
+    let evName = eventName ?? (name.charAt(2).toLowerCase() + name.slice(3));
+        
+    const eventHandler = (component as any)[name];
+    const LISTENER_KEY = Symbol(`${evName}Listener`);
+
+    const { connectedCallback } = component;
+    component.connectedCallback = function (this: CustomHTMLElement) {
+      let eventTarget: EventTarget = this;
+      if (target === 'document') eventTarget = document;
+      else if (target === 'window') eventTarget = window;
+
+      (this as any)[LISTENER_KEY] = listenTo(
+        eventTarget, 
+        evName, 
+        eventHandler.bind(this), 
+        listenerOptions
+      );
+
+      if (connectedCallback) return connectedCallback.call(this);
+    }
+
+    const { disconnectedCallback } = component;
+    component.disconnectedCallback = function(this: CustomHTMLElement) {
+      (this as any)[LISTENER_KEY]?.();
+      delete (this as any)[LISTENER_KEY];
+      if (disconnectedCallback) return disconnectedCallback.call(this);
+    }
   }
 }

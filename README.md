@@ -1,4 +1,4 @@
-# wc-events
+# @wcom/events
 
 [![package-badge]][package]
 [![size-badge]][bundlephobia]
@@ -6,14 +6,14 @@
 [![coverage-badge]][coverage]
 [![semantic-release-badge]][semantic-release]
 
-[package]: https://www.npmjs.com/package/@mihar/wc-events
-[package-badge]: https://img.shields.io/npm/v/@mihar/wc-events
-[bundlephobia]: https://bundlephobia.com/result?p=@mihar/wc-events
-[size-badge]: https://img.shields.io/bundlephobia/minzip/@mihar/wc-events
-[license]: https://github.com/mihar-22/wc-events/blob/master/LICENSE
-[license-badge]: https://img.shields.io/github/license/mihar-22/wc-events
-[coverage]: https://codecov.io/github/mihar-22/wc-events
-[coverage-badge]: https://img.shields.io/codecov/c/github/mihar-22/wc-events.svg
+[package]: https://www.npmjs.com/package/@wcom/events
+[package-badge]: https://img.shields.io/npm/v/@wcom/events
+[bundlephobia]: https://bundlephobia.com/result?p=@wcom/events
+[size-badge]: https://img.shields.io/bundlephobia/minzip/@wcom/events
+[license]: https://github.com/mihar-22/events/blob/master/LICENSE
+[license-badge]: https://img.shields.io/github/license/mihar-22/events
+[coverage]: https://codecov.io/github/mihar-22/events
+[coverage-badge]: https://img.shields.io/codecov/c/github/mihar-22/wevents.svg
 [semantic-release]: https://github.com/semantic-release/semantic-release
 [semantic-release-badge]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
 
@@ -27,13 +27,13 @@ make sure to set `experimentalDecorators` to `true ` in `tsconfig.json`.
 
 ```bash
 # npm
-$: npm install @mihar/wc-events
+$: npm install @wcom/events
 
 # yarn
-$: yarn add @mihar/wc-events
+$: yarn add @wcom/events
 
 # pnpm
-$: pnpm install @mihar/wc-events
+$: pnpm install @wcom/events
 ```
 
 ## Usage
@@ -44,6 +44,8 @@ Dispatches a custom event from the given target. Mainly used to type the emitter
 from the [`@event`](#event) decorator.
 
 ```ts
+import { EventEmitter } from '@wcom/events';
+
 const target = document.createElement('<div></div>');
 const emitter = new EventEmitter<string>(target, 'myEvent', { bubbles: true });
 emitter.emit('apples');
@@ -55,6 +57,8 @@ A disposal bin used to add cleanup callbacks that can be called when required. M
 add stop event listener callbacks returned from [`listenTo`](#listenTo).
 
 ```ts
+import { Disposal } from '@wcom/events';
+
 const disposal = new Disposal();
 
 function onClick() {
@@ -80,6 +84,8 @@ from the host element. By default all events emitted bubble up the DOM tree and 
 shadows into the light.
 
 ```ts
+import { event } from '@wcom/events';
+
 class MyComponent extends HTMLElement {
   // 1.
   @event() myEvent!: EventEmitter<string>;
@@ -101,6 +107,8 @@ listen for `eventName`. The event is automatically cleaned up when the element i
 from the DOM.
 
 ```ts
+import { listen } from '@wcom/events';
+
 class MyComponent extends HTMLElement {
   // 1.
   @listen('customEvent')
@@ -127,6 +135,8 @@ class MyComponent extends HTMLElement {
 Listens to an event on the given `target` and returns a cleanup function to stop listening.
 
 ```ts
+import { listenTo } from '@wcom/events';
+
 function onResize() {
   // ...
 }

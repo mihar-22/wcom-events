@@ -1,0 +1,46 @@
+{
+  "name": "@mihar/wc-events",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "Rahim Alwer <rahim_alwer@hotmail.com>",
+  "description": "Event decorators and helpers for web components.",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "@types/",
+  "homepage": "https://github.com/mihar-22/wc-events",
+  "bugs": {
+    "url": "https://github.com/mihar-22/wc-events"
+  },
+  "files": [
+    "dist/",
+    "@types/"
+  ],
+  "scripts": {
+    "build": "rimraf dist && npm run build:cjs && npm run build:esm",
+    "build:cjs": "tsc --module commonjs --outDir dist/cjs",
+    "build:esm": "tsc --module es2015 --outDir dist/esm",
+    "release": "semantic-release",
+    "test": "wtr \"src/**/*.test.ts\" --coverage",
+    "test:watch": "wtr \"src/**/*.test.ts\" --watch"
+  },
+  "peerDependencies": {
+  },
+  "devDependencies": {
+    "@open-wc/testing": "^2.5.32",
+    "@types/mocha": "^8.0.4",
+    "@web/dev-server-esbuild": "^0.2.8",
+    "@web/test-runner": "^0.9.13",
+    "rimraf": "^3.0.2",
+    "semantic-release": "^17.0.0",
+    "typescript": "^4.0.0"
+  },
+  "keywords": [
+    "web-components",
+    "helpers",
+    "events",
+    "decorator"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

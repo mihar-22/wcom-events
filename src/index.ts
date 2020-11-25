@@ -93,7 +93,7 @@ export interface ListenOptions {
 }
 
 /**
- * Listens to an event on the given `node` and returns a cleanup function to stop listening.
+ * Listens to an event on the given `target` and returns a cleanup function to stop listening.
  * 
  * @param eventTarget - The target to listen for the events on.
  * @param eventName - The name of the event to listen to.
@@ -129,7 +129,7 @@ export interface CustomHTMLElement extends HTMLElement {
  * from the method name if it is named following JSX conventions such as `onEventName`, which will 
  * listen for `eventName`. The event is automatically cleaned up when the element is disconnected 
  * from the DOM.
- 
+ *  
  * @param eventName (optional) - The name of the event to listen to.
  * @param options - Configures the event listener.
  */

@@ -103,7 +103,7 @@ class MyComponent extends HTMLElement {
 
 Attaches an event listener to the host element _or_ the given `target`. The event name can be inferred 
 from the method name if it is named following JSX conventions such as `onEventName`, which will 
-listen for `eventName`. The event is automatically cleaned up when the element is disconnected 
+listen for `eventName`. The listener is automatically cleaned up when the element is disconnected 
 from the DOM.
 
 ```ts

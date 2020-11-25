@@ -10,10 +10,10 @@
 [package-badge]: https://img.shields.io/npm/v/@wcom/events
 [bundlephobia]: https://bundlephobia.com/result?p=@wcom/events
 [size-badge]: https://img.shields.io/bundlephobia/minzip/@wcom/events
-[license]: https://github.com/mihar-22/events/blob/master/LICENSE
-[license-badge]: https://img.shields.io/github/license/mihar-22/events
-[coverage]: https://codecov.io/github/mihar-22/events
-[coverage-badge]: https://img.shields.io/codecov/c/github/mihar-22/wevents.svg
+[license]: https://github.com/mihar-22/wc-events/blob/master/LICENSE
+[license-badge]: https://img.shields.io/github/license/mihar-22/wc-events
+[coverage]: https://codecov.io/github/mihar-22/wc-events
+[coverage-badge]: https://img.shields.io/codecov/c/github/mihar-22/wc-events.svg
 [semantic-release]: https://github.com/semantic-release/semantic-release
 [semantic-release-badge]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
 

@@ -41,7 +41,7 @@ $: pnpm install @mihar/wc-events
 ### `EventEmitter`
 
 Dispatches a custom event from the given target. Mainly used to type the emitter returned 
-from the [`@event`](#@event) decorator.
+from the [`@event`](#event) decorator.
 
 ```ts
 const target = document.createElement('<div></div>');

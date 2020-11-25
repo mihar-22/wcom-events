@@ -23,8 +23,6 @@
     "test": "wtr \"src/**/*.test.ts\" --coverage",
     "test:watch": "wtr \"src/**/*.test.ts\" --watch"
   },
-  "peerDependencies": {
-  },
   "devDependencies": {
     "@open-wc/testing": "^2.5.32",
     "@types/mocha": "^8.0.4",

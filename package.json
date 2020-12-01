@@ -16,7 +16,7 @@
     "@types/"
   ],
   "scripts": {
-    "build": "rimraf dist && npm run build:cjs && npm run build:esm",
+    "build": "rimraf dist && rimraf @types && npm run build:cjs && npm run build:esm",
     "build:cjs": "tsc --module commonjs --outDir dist/cjs",
     "build:esm": "tsc --module es2015 --outDir dist/esm",
     "release": "semantic-release --branches main",

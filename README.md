@@ -1,15 +1,12 @@
 # @wcom/events
 
 [![package-badge]][package]
-[![size-badge]][bundlephobia]
 [![license-badge]][license]
 [![coverage-badge]][coverage]
 [![semantic-release-badge]][semantic-release]
 
 [package]: https://www.npmjs.com/package/@wcom/events
 [package-badge]: https://img.shields.io/npm/v/@wcom/events
-[bundlephobia]: https://bundlephobia.com/result?p=@wcom/events
-[size-badge]: https://img.shields.io/bundlephobia/minzip/@wcom/events
 [license]: https://github.com/mihar-22/wc-events/blob/master/LICENSE
 [license-badge]: https://img.shields.io/github/license/mihar-22/wc-events
 [coverage]: https://codecov.io/github/mihar-22/wc-events

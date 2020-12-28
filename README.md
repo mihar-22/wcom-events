@@ -151,6 +151,6 @@ off();
 
 ## Related Packages
 
-- [`wc-cli`](https://github.com/mihar-22/wc-cli): CLI tool to get your web component library ready 
-for production.
+- [`wc-create-app`](https://github.com/mihar-22/wc-create-app): Set up a modern web component library by running one command.
+- [`wc-cli`](https://github.com/mihar-22/wc-cli): CLI tool to get your web component library ready for production.
 - [`wc-context`](https://github.com/mihar-22/wc-context): Pass props down web component trees easily. 

@@ -2,7 +2,7 @@
   "name": "@wcom/events",
   "version": "0.0.0",
   "license": "MIT",
-  "author": "Rahim Alwer <rahim_alwer@hotmail.com>",
+  "author": "Rahim Alwer <rahim_alwer@outlook.com>",
   "description": "Event decorators and helpers for web components.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",

@@ -7,10 +7,10 @@
 
 [package]: https://www.npmjs.com/package/@wcom/events
 [package-badge]: https://img.shields.io/npm/v/@wcom/events
-[license]: https://github.com/mihar-22/wc-events/blob/master/LICENSE
-[license-badge]: https://img.shields.io/github/license/mihar-22/wc-events
-[coverage]: https://codecov.io/github/mihar-22/wc-events
-[coverage-badge]: https://img.shields.io/codecov/c/github/mihar-22/wc-events.svg
+[license]: https://github.com/wcom-js/events/blob/main/LICENSE
+[license-badge]: https://img.shields.io/github/license/wcom-js/events
+[coverage]: https://codecov.io/github/wcom-js/events
+[coverage-badge]: https://img.shields.io/codecov/c/github/wcom-js/events.svg
 [semantic-release]: https://github.com/semantic-release/semantic-release
 [semantic-release-badge]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
 
@@ -148,9 +148,3 @@ const off = listenTo(window, 'resize', onResize, {
 // Stop listening.
 off();
 ```
-
-## Related Packages
-
-- [`wc-create-app`](https://github.com/mihar-22/wc-create-app): Set up a modern web component library by running one command.
-- [`wc-cli`](https://github.com/mihar-22/wc-cli): CLI tool to get your web component library ready for production.
-- [`wc-context`](https://github.com/mihar-22/wc-context): Pass props down web component trees easily. 

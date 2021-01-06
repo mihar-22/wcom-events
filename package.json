@@ -7,9 +7,9 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "@types/",
-  "homepage": "https://github.com/wcom-js/events",
+  "homepage": "https://github.com/mihar-22/wcom-events",
   "bugs": {
-    "url": "https://github.com/wcom-js/events/issues"
+    "url": "https://github.com/mihar-22/wcom-events/issues"
   },
   "files": [
     "dist/",
